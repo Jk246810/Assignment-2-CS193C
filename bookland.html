@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Bookland</title>
+<script></script>
+<style>
+#findBook{
+	align-self: center;
+	width: 100%
+	padding-left: 50px;
+	padding-right: 50px;
+}
+.a{
+	text-align: center; 
+
+}
+#descr{
+	border: 1px dotted black; 
+	text-align: center; 
+	margin-left: 50px;
+	margin-right: 20px;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	height: 300px; 
+
+}
+h1{
+	text-align: center;
+	font-size: 50pt; 
+	letter-spacing: 7px; 
+	margin: 0px; 
+}
+</style>
+</head>
+
+<body>
+	<h1>BOOKLAND</h1>
+<fieldset id="findBook">
+
+<div class="a"><label for="authorName">Author name: </label>
+     <input type="text" id="authorName" /></div>
+<div class="a"><label for="bookTitle">Book title: </label>
+     <input type="text" id="bookTitle" /></div>
+
+<div class="a">
+     <input type="button" value="search" id="searchButton" />
+     <input type="button" value="clear" id="clearButton" />
+ </div>
+
+<div id="descr">
+	<p id="descrText"></p>
+  </div>
+
+</fieldset>
+<script>
+var authors = ["Thomas Mann",
+				"James Joyce",
+				"E. M. Forster",
+				"Isabel Allende",
+				"Isabel Allende"
+			  ];
+var titles =  ["Death in Venice",
+				"A portrait of the artist as a young man",
+				"A room with a view",
+				"The house of spirits",
+				"Of love and shadows"];
+var descriptions =  ["One of the most famous literary works of the twentieth \n century, this novella embodies themes that preoccupied Thomas Mann in much \n of his work: the duality of art and life, the presence of death and \n disintegration in the midst of existence, the connection between love and \nsuffering and the conflict between the artist and his inner self.",
+				"A portrait of the artist as a young man \nDescription: This book is a fictional re-creation of the Irish writer's\nown life and early environment. The experiences of the novel's young hero,\nunfold in astonishingly vivid scenes that seem freshly recalled from life\nand provide a powerful portrait of the coming of age of a young man of\nunusual intelligence, sensitivity and character.",
+				"This work displays an unusually perceptive view of British \n society in the early 20th century.It is a social comedy set in Florence,\n Italy, and Surrey, England. Its heroine, Lucy Honeychurch, struggling \n against straitlaced Victorian attitudes of arrogance, narroe mindedness \n and sobbery, falls in love - while on holiday in Italy - with the socially \n unsuitable George Emerson.",
+				"Allende describes the life of three generations of a \n prominent family in Chile and skillfully combines with this all the main \n historical events of the time, up until Pinochet's dictatorship.",
+				"The whole world of Irene Beltran, a young reporter in Chile \n at the time of the dictatorship, is destroyed when she discovers a series \n of killings carried out by government soldiers. With the help of a \n photographer, Francisco Leal, and risking her life, she tries to come up \n with evidence against the dictatorship."
+			  ];
+function findDescription(){
+	var found = false;
+	authorElement = document.getElementById("authorName"); 
+	titleElement = document.getElementById("bookTitle");
+	if(titleElement.value != "" &&authorElement.value != ""){
+		var j; 
+		for(j=0; j<titles.length; j++)
+		{	
+			if(titles[j] == titleElement.value){
+				document.getElementById("descrText").innerHTML = descriptions[j]; 
+				authorElement.value = authors[j];
+				found = true; 
+			}
+		}
+	}
+	else if(authorElement.value != "")
+	{
+		var i; 
+		for(i=0; i<authors.length; i++)
+		{	
+			
+			if(authors[i] == authorElement.value){
+				document.getElementById("descrText").innerHTML = descriptions[i]; 
+				console.log(descriptions[i]);
+				titleElement.value = titles[i];
+				found = true; 
+			}
+		}
+	}else if(titleElement.value != ""){
+		var k; 
+		for(k=0; k<titles.length; k++)
+		{	
+			if(titles[k] == titleElement.value){
+				document.getElementById("descrText").innerHTML = descriptions[k]; 
+				authorElement.value = authors[k];
+				found = true; 
+			}
+		}
+	}
+	if(found == false){
+		document.getElementById("descrText").innerHTML = "invalid input"; 
+	}
+}
+function clearPage(){
+	aE = document.getElementById("authorName"); 
+	tE = document.getElementById("bookTitle");
+	des = document.getElementById("descrText"); 
+		aE.value = ""; 
+		tE.value = ""; 
+		des.innerHTML = ""; 
+}
+
+document.getElementById("searchButton").addEventListener("click", findDescription, false);
+document.getElementById("clearButton").addEventListener("click", clearPage, false);
+
+</script>
+</body>
+</html>

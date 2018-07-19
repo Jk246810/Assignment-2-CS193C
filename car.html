@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Cars</title>
+<script src="carsForm.js" defer>
+</script>
+<style>
+#cars {
+	display: grid;
+	grid-template-columns: auto;
+	grid-template-rows: auto;
+
+}
+#title{
+	grid-row: 1; 
+	grid-column: 1 / span 2; 
+	width: 100%; 
+}
+#configuration{
+	grid-row: 2; 
+	grid-column: 1; 
+	border: 1px solid black; 
+	padding: 5px; 
+	width: 90%; 
+}
+#factoryOptions{
+	grid-row: 3; 
+	grid-column: 1; 
+	border: 1px solid black; 
+	margin-top: 7px; 
+	padding: 5px; 
+	width: 90%; 
+}
+#dealerOptions{
+	grid-row: 4; 
+	grid-column: 1; 
+	border: 1px solid black; 
+	margin-top: 7px; 
+	padding: 5px; 
+	width: 90%; 
+}
+#totalPrice{
+	grid-row: 5; 
+	grid-column: 1;
+	border: 1px solid black; 
+	margin-top: 7px; 
+	padding: 5px; 
+	width: 90%; 
+}
+#colorChoices{
+	grid-column: 2;
+	grid-row: 2/span 3; 
+	
+	border: 1px solid black; 
+	
+	margin-left: 15px;
+	padding: 5px; 
+	width: 80%; 
+}
+.tableHeading{
+	font-weight: bold; 
+	background-color: grey; 
+	color: white;
+	font-size: 18pt; 
+}
+
+.price{
+	padding-left: 100px;
+	text-align: right; 
+}
+ul{
+	padding: 0px;
+	margin: 0px;
+	font-size: 8pt;
+	padding-left: 8px;
+}
+img{
+	width: auto;
+}
+
+</style>
+</head>
+<body>
+<form id="cars">
+<div id="title">
+	<h1>Configure Your GT Super Sportscar</h1>
+</div>
+<table id="configuration">
+	<th colspan="3" class="tableHeading">Configuration</th>
+	<tr>
+		<td><input type="checkbox" name="GTManual"/></td>
+		<td>GT Manual</td>
+		<td class = "price">$17,790.00</td>
+	</tr>
+	<tr>
+		<td><input type="checkbox" name="GTAutomatic"/></td>
+		<td>GT Automatic</td>
+		<td class = "price">$18,590.00</td>	
+	</tr>
+	<tr>
+		<td><input type="checkbox" name="GTSManual"/></td>
+		<td>GT-S Manual</td>
+		<td class = "price">$22,455.00</td>
+	</tr>
+	<tr>
+		<td><input type="checkbox" name="GTSSportshift"/></td>
+		<td>GT-S Sportshift</td>
+		<td class = "price">$23,155.00</td>
+	</tr>
+</table>
+
+
+<table id="factoryOptions">
+	<th colspan="3" class="tableHeading">Factory Options</th>
+	<tr>
+		<td><input type="checkbox" name="Option1"/></td>
+		<td>Option Combo #1</td>
+		<td class = "price">$1235.00</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<ul>
+				<li>Power Windows, Doors, Cruise Control</li> 
+			</ul>
+		</td>
+	</tr>
+
+	<tr>
+		<td><input type="checkbox" name="Option2"/></td>
+		<td>Option Combo #2</td>
+		<td class = "price">$3354.00</td>	
+	</tr>
+	<tr>
+		<td colspan="2">
+			<ul>
+				<li>Rear spoiler</li>
+				<li>Keyless Entry</li>
+				<li>Power Tilt and Slide Moonroof</li>
+				<li>Power Windows, Doors, Cruise Control</li>
+			</ul>
+		</td>
+	</tr>
+	<tr>
+		<td><input type="checkbox" name="noCombo"/></td>
+		<td>No Combo</td>
+		<td class = "price">$0</td>	
+	</tr>
+</table>
+
+
+<table id="dealerOptions">
+	<th colspan="3" class="tableHeading">Dealer Options</th>
+	<tr>
+		<td><input type="checkbox" name="stereoSystem"/></td>
+		<td>Upgraded Stereo System</td>
+		<td class = "price">$550.00</td>
+	</tr>
+	<tr>
+		<td><input type="checkbox" name="securitySystem"/></td>
+		<td>VIP Security System</td>
+		<td class = "price">$399.00</td>	
+	</tr>
+	<tr>
+		<td><input type="checkbox" name="dimMirror"/></td>
+		<td>Auto-Dimming Mirror</td>
+		<td class = "price">$295.00</td>
+	</tr>
+</table>
+
+
+<table id="totalPrice">
+	<th colspan="3" class="tableHeading">Total Price</th>
+	<tr>
+		<td colspan="2"> <input type="text" size="30"name="total" /> </td>
+		<td><input type="button" value="Total" id="totalButton"/></td>
+	</tr>
+</table>
+
+
+
+<table id="colorChoices">
+	<th colspan="3" class="tableHeading">Choose A Color</th>
+	<tr>
+		<td>
+			<select name="carColor" size="6">
+				<option selected="selected" value ="red">Red</option>
+				<option value = "blue">Blue</option>
+				<option value = "silver">Silver</option>
+				<option value = "white">White</option>
+				<option value = "black">Black</option>
+
+			</select>
+		</td>
+		<td><img id="photo" src="red.jpg" alt="Vehicle Photo"></td>
+	</tr>
+	
+</table>
+	
+
+</form>
+</body>
+</html>
